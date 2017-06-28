@@ -27,7 +27,7 @@ function kill (pid, signal, callback) {
 
 function startServer(){
     if(!child){
-        child = fork('server/server.js');
+        child = fork('server/server.js');     
     }
 }
 
@@ -40,7 +40,14 @@ function stopServer(callback){
     }
 }
 
+function registerLogListner(callback){
+    child.on('message', function(response) {
+            callback(response.log);
+    });
+}
+
 module.exports = {
     startServer,
-    stopServer
+    stopServer,
+    registerLogListner
 }

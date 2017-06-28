@@ -3,12 +3,14 @@ const app = express();
 const fs = require("fs");
 const config = require('../config/configurationModule.js');
 let data = config.get();
+
+
 const server = app.listen(8081, function () {
 
   let host = server.address().address
   let port = server.address().port
 
-  console.log("Listening at http://%s:%s", host, port)
+  log(`Listening at http://${ host }: ${ port }`)
 
 });
 
@@ -33,3 +35,10 @@ server.on('close',()=>{
 process.on('exit',()=>{
     console.log('exiting child')
 })
+
+function log(){
+    console.log(...arguments);
+    process.send({
+        log: arguments
+    });
+}

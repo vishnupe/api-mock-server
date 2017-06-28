@@ -74,3 +74,7 @@ exports.startServer = () => {
 exports.stopServer = (cb) => {  
     server.stopServer(cb);
 }
+exports.registerLogListner = (cb) =>{    
+    server.registerLogListner(cb)    
+}
+

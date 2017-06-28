@@ -8,16 +8,22 @@ let data = config.get();
 
 let isServerStarted = false;
 
+
 function handleServerButtonClick(){
 
     if(!isServerStarted){
         main.startServer();
+        main.registerLogListner((response)=>{
+            console.log(response[0])
+        })
         console.log('Server started')
+        document.getElementById('notification').style.display='block';
         isServerStarted = true;
         document.getElementById('server-btn').textContent = 'Stop server';
     }else{
         main.stopServer(()=>{
             console.log('Server closed')
+            document.getElementById('notification').style.display='none';
             document.getElementById('server-btn').textContent = 'Start server';
             isServerStarted = false;
         });      
