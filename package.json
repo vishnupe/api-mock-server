@@ -1,0 +1,19 @@
+{
+  "name": "mock-api-server",
+  "version": "1.0.0",
+  "description": "An electron application to mock api end points in local dev environment. Backed by an express server with flexible configuration.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "vishnu.p.e",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "~1.6.2"
+  },
+  "dependencies": {
+    "express": "^4.15.3",
+    "jsonfile": "^3.0.0",
+    "ps-tree": "^1.1.0"
+  }
+}
